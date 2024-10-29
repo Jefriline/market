@@ -9,8 +9,7 @@
 <body>
     <header>
         <div class="logo">Cellphone Store</div>
-        <div class="slogan">The best products at the best prices!</div>
-        <button class="cart-btn" onclick="toggleCart()">Shopping Cart</button>
+        <button class="cart-btn" onclick="viewHiddenSection('cart')">Shopping Cart</button>
     </header>
 
     <main>
@@ -20,14 +19,14 @@
         <section class="c"></section>
         
        
-        <div class="admin-btn-container">
-            <button class="add-product-btn" onclick="toggleModal('add-product-modal')">+</button>
+        <div class="add-btn-container">
+            <button class="add-product-btn" >+</button>
         </div>
 
         
-        <div id="add-product-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('add-product-modal')">&times;</span>
+        <div id="add-product" class="add-product hidden">
+            <div class="add-product-content">
+                <button id="closeAdd">x</button>
                 <h2>Add a New Product</h2>
                 <form id="add-product-form">
                     <label for="product-title">Title:</label>
@@ -44,9 +43,9 @@
         </div>
 
         
-        <div id="cart-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('cart-modal')">&times;</span>
+        <div id="cart" class="cart hidden">
+            <div class="cart-content">
+                <button id="closeCart">x</button>
                 <h2>Your Cart</h2>
                 <table>
                     <thead>
@@ -73,6 +72,7 @@
     </footer>
 
     <script type="module" src="app.js"></script>
-    <script type="module" src="cart.js"></script>
+    <script type="module" src="services/cart.js"></script>
+    <script type="module" src="services/complements.js"></script>
 </body>
 </html>

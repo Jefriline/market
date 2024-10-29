@@ -6,7 +6,7 @@ export const celulares = [
     },
     {
         img: 'https://www.losdistribuidores.com/wp-content/uploads/2024/07/zte-nubia-red-magic-9s-pro-negro-parte-trasera.webp',
-        title: 'Zte Red Magic 9s pro',
+        title: 'Red Magic 9s pro',
         price: 1000000
     },
     {
@@ -26,7 +26,7 @@ export const celulares = [
     },
     {
         img: 'https://mastronics.vtexassets.com/arquivos/ids/160328/Celular-Xiaomi-Redmi-Note-13-PRO-4G-Verde-2.png?v=638413975298900000',
-        title: 'Xiaomi Redmi Note 13 pro',
+        title: 'Redmi Note 13 pro',
         price: 2500000
     },
     {
