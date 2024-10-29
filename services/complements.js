@@ -1,4 +1,4 @@
-
+import { checkout } from "./cart.js";
 export function viewHiddenSection(id) {
     const section = document.getElementById(id);
 
@@ -17,5 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.querySelector('#closeAdd').addEventListener('click', () => {
         viewHiddenSection('add-product');
+    });
+    document.querySelector('.simulate-button').addEventListener('click', () => {
+        checkout();
     });
 });

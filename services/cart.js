@@ -1,8 +1,7 @@
-// cart.js
 
-let cartItems = []; // Array para almacenar los productos del carrito
 
-// Función para agregar un producto al carrito
+let cartItems = []; 
+
 export function addToCart(product) {
     const existingProduct = cartItems.find(item => item.id === product.id);
     if (existingProduct) {
@@ -14,14 +13,14 @@ export function addToCart(product) {
     renderCartItems();
 }
 
-// Función para eliminar un producto del carrito
+
 export function removeFromCart(productId) {
     cartItems = cartItems.filter(item => item.id !== productId);
     updateCartTotal();
     renderCartItems();
 }
 
-// Función para actualizar la cantidad de un producto en el carrito
+
 export function updateQuantity(productId, newQuantity) {
     const product = cartItems.find(item => item.id === productId);
     if (product) {
@@ -31,30 +30,32 @@ export function updateQuantity(productId, newQuantity) {
     renderCartItems();
 }
 
-// Función para calcular el total del carrito
+
 function updateCartTotal() {
     const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
     document.getElementById('total-price').textContent = `Total: $${total.toFixed(2)}`;
 }
 
-// Función para renderizar los elementos del carrito en la tabla HTML
+
 function renderCartItems() {
     const cartTableBody = document.getElementById('cart-items');
-    cartTableBody.innerHTML = ''; // Limpiar contenido anterior
+    cartTableBody.innerHTML = ''; 
 
+   
     cartItems.forEach(item => {
         const row = document.createElement('tr');
 
         const titleCell = document.createElement('td');
-        titleCell.textContent = item.title;
+        titleCell.textContent = item.title; 
         row.appendChild(titleCell);
 
         const priceCell = document.createElement('td');
-        priceCell.textContent = `$${item.price.toFixed(2)}`;
+        priceCell.textContent = `$${item.price.toFixed(2)}`; 
         row.appendChild(priceCell);
 
         const quantityCell = document.createElement('td');
         const quantityInput = document.createElement('input');
+        quantityInput.classList.add('quantity-input');
         quantityInput.type = 'number';
         quantityInput.value = item.quantity;
         quantityInput.min = 1;
@@ -63,7 +64,7 @@ function renderCartItems() {
         row.appendChild(quantityCell);
 
         const subtotalCell = document.createElement('td');
-        subtotalCell.textContent = `$${(item.price * item.quantity).toFixed(2)}`;
+        subtotalCell.textContent = `$${(item.price * item.quantity).toFixed(2)}`; 
         row.appendChild(subtotalCell);
 
         const actionCell = document.createElement('td');
@@ -78,14 +79,15 @@ function renderCartItems() {
     });
 }
 
-// Función para vaciar el carrito
+
+
 export function clearCart() {
     cartItems = [];
     updateCartTotal();
     renderCartItems();
 }
 
-// Función para simular una compra
+
 export function checkout() {
     if (cartItems.length === 0) {
         alert('Your cart is empty!');
@@ -94,3 +96,5 @@ export function checkout() {
     alert('Purchase successful!');
     clearCart();
 }
+
+
