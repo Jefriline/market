@@ -10,52 +10,69 @@
     <header>
         <div class="logo">Cellphone Store</div>
         <div class="slogan">The best products at the best prices!</div>
-        <button class="cart-btn">Shopping Cart</button>
+        <button class="cart-btn" onclick="toggleCart()">Shopping Cart</button>
     </header>
 
     <main>
         <h1 class="main-title">Available Products</h1>
-        <section class="c">
+        
 
-            <div class="product-card">
-                <h2 class="product-title">Nokia 3310</h2>
-                <img src="https://static-mpm-optimized.s3.eu-west-2.amazonaws.com/aa906073-15d3-4eba-9528-d075b09bf725_large.png" alt="Product 1 Image" class="product-img">
-                <p class="product-price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
+        <section class="c"></section>
+        
+       
+        <div class="admin-btn-container">
+            <button class="add-product-btn" onclick="toggleModal('add-product-modal')">+</button>
+        </div>
+
+        
+        <div id="add-product-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('add-product-modal')">&times;</span>
+                <h2>Add a New Product</h2>
+                <form id="add-product-form">
+                    <label for="product-title">Title:</label>
+                    <input type="text" id="product-title" required>
+                    <label for="product-img">Image URL:</label>
+                    <input type="url" id="product-img">
+                    <label for="product-file">Or upload an image:</label>
+                    <input type="file" id="product-file" accept="image/*">
+                    <label for="product-price">Price:</label>
+                    <input type="number" id="product-price" required>
+                    <button type="submit">Add Product</button>
+                </form>
             </div>
+        </div>
 
-            <div class="product-card">
-                <h2 class="product-title">Red magic 9s</h2>
-                <img src="https://www.losdistribuidores.com/wp-content/uploads/2024/07/zte-nubia-red-magic-9s-pro-negro-parte-trasera.webp" alt="Product 1 Image" class="product-img">
-                <p class="product-price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
+        
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('cart-modal')">&times;</span>
+                <h2>Your Cart</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        
+                    </tbody>
+                </table>
+                <p id="total-price">Total: $0.00</p>
             </div>
-
-            <div class="product-card">
-                <h2 class="product-title">S24 Ultra</h2>
-                <img src="https://mastronics.vtexassets.com/arquivos/ids/160544/Celular-Samsung-S24-Ultra-Lila-2.png?v=638419228842070000" alt="Product 1 Image" class="product-img">
-                <p class="product-price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div class="product-card">
-                <h2 class="product-title">Asus ROG 8</h2>
-                <img src="https://exacoat.com/wp-content/uploads/ROG-Phone-8-Body.png" alt="Product 1 Image" class="product-img">
-                <p class="product-price">$20.00</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-
-        </section>
+        </div>
     </main>
 
     
-    <div class="admin-btn-container">
-        <button class="add-product-btn">+</button>
-    </div>
-    
     <footer>
-        <p>&copy; 2024 All Rights Reserved by the Creators Jefferson Lopez and Sergio Mejia .</p>
+        <p>&copy; 2024 All Rights Reserved by the Creators Jefferson Lopez and Sergio Mejia.</p>
     </footer>
+
     <script type="module" src="app.js"></script>
+    <script type="module" src="cart.js"></script>
 </body>
 </html>

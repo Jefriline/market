@@ -1,12 +1,11 @@
-import { celulares } from "./celulares";
-
+import { celulares } from "./cell.js";
 
 window.addEventListener('DOMContentLoaded', () => makeCards(celulares));
 
 
 function makeCards(array) {
     array.forEach(element => {
-        makeCard(element)
+        makeCard(element);
     });
 }
 
@@ -16,27 +15,31 @@ function makeCard(card) {
     container.classList.add('product-card');
 
     const titleCard = document.createElement('h2');
-    container.classList.add('product-title');
+    titleCard.classList.add('product-title');
     titleCard.textContent = card.title;
-    
+
     const imgCard = document.createElement('img');
     imgCard.src = card.img;
-    imgCard.alt = card.description;
+    imgCard.alt = card.title;
     imgCard.classList.add('product-img');
-    
+
     const price = document.createElement('p');
-    precio.classList.add('product-price');
-    descriptionCard.textContent = card.price;
-    
+    price.classList.add('product-price');
+    price.textContent = `$${card.price.toLocaleString()}`; 
+
     const buttonAddCart = document.createElement('button');
     buttonAddCart.textContent = 'Add to Cart';
     buttonAddCart.classList.add('add-to-cart');
-    
+    buttonAddCart.addEventListener('click', () => addToCart(card));
 
     container.appendChild(imgCard);
     container.appendChild(titleCard);
     container.appendChild(price);
     container.appendChild(buttonAddCart);
 
-    document.querySelector('main').appendChild(container);
+    document.querySelector('main .c').appendChild(container); 
 }
+
+
+
+
