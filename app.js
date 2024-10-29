@@ -1,4 +1,5 @@
 import { celulares } from "./services/cell.js";
+import { addToCart } from "./services/cart.js";
 
 const productos = [...celulares]; 
 
@@ -30,6 +31,10 @@ function makeCard(card) {
     const buttonAddCart = document.createElement('button');
     buttonAddCart.textContent = 'Add to Cart';
     buttonAddCart.classList.add('add-to-cart');
+
+    buttonAddCart.addEventListener('click', () => {
+        addToCart(card); 
+    });
 
     container.appendChild(imgCard);
     container.appendChild(titleCard);
