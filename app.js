@@ -1,14 +1,14 @@
 import { celulares } from "./services/cell.js";
 
-window.addEventListener('DOMContentLoaded', () => makeCards(celulares));
+const productos = [...celulares]; 
 
+window.addEventListener('DOMContentLoaded', () => makeCards(productos));
 
 function makeCards(array) {
-    array.forEach(element => {
-        makeCard(element);
-    });
+    const container = document.querySelector('main .c');
+    container.innerHTML = '';
+    array.forEach(element => makeCard(element));
 }
-
 
 function makeCard(card) {
     const container = document.createElement('div');
@@ -40,5 +40,33 @@ function makeCard(card) {
 }
 
 
+document.getElementById('product-file').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('product-img').value = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
 
+document.getElementById('add-product-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('product-title').value;
+    const imageUrl = document.getElementById('product-img').value;
+    const price = parseFloat(document.getElementById('product-price').value);
+    const newProduct = {
+        title,
+        img: imageUrl || 'default.jpg', 
+        price
+    };
+
+    productos.push(newProduct);
+    makeCards(productos);
+
+    event.target.reset();
+    document.getElementById('add-product').classList.add('hidden');
+});

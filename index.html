@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="logo">Cellphone Store</div>
-        <button class="cart-btn" onclick="viewHiddenSection('cart')">Shopping Cart</button>
+        <button class="cart-btn">Shopping Cart</button>
     </header>
 
     <main>
@@ -35,7 +35,7 @@
                     <input type="url" id="product-img">
                     <label for="product-file">Or upload an image:</label>
                     <input type="file" id="product-file" accept="image/*">
-                    <label for="product-price">Price:</label>
+                    <label for="product-price" min=1 >Price:</label>
                     <input type="number" id="product-price" required>
                     <button type="submit">Add Product</button>
                 </form>
